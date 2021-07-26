@@ -60,11 +60,12 @@ def login_function(name,password):
         print("wrong username or password")
 
 def Signup_function(name,password):
-    file = open("Credentials.txt", "a")
-    file.write(name+","+password+"\n")
-    file.close()
+#     using the with statement you do not need to close the file it does that automaticaly
+    with open("Credentials.txt", "a") as file:
+         file.write(name+","+password+"\n")
     print("Signup successful ")
     authorize()
+
 
 def access_begin_form(option):
     global name
